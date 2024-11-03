@@ -5,9 +5,9 @@ export const HomePage = () => {
   const profesor = "NOMBRE_APELLIDO_PROFESOR";
 
   const asignaturas = [
-    { id: "1", codigo: "INF239", nombre: "Bases de datos", postulantes: 55, cupos: 7 },
-    { id: "2", codigo: "INF236", nombre: "Análisis y diseño de software", postulantes: 78, cupos: 10 },
-    { id: "3", codigo: "INF225", nombre: "Ingeniería de software", postulantes: 60, cupos: 10 },
+    { id: "1", codigo: "INF239", nombre: "Bases de datos", num_postulantes: 55, cupos: 7 },
+    { id: "2", codigo: "INF236", nombre: "Análisis y diseño de software", num_postulantes: 78, cupos: 10 },
+    { id: "3", codigo: "INF225", nombre: "Ingeniería de software", num_postulantes: 60, cupos: 10 },
   ];
 
   return (

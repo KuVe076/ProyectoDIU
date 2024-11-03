@@ -1,7 +1,7 @@
-import React from 'react';
-import '../stylesheets/homepage/asignaturas.scss'
-import ForwardIcon from '@mui/icons-material/Forward';
-
+import React from "react";
+import "../stylesheets/homepage/asignaturas.scss";
+import ForwardIcon from "@mui/icons-material/Forward";
+import { Link } from 'react-router-dom';
 
 function Asignaturas({ asignaturas }) {
   return (
@@ -20,9 +20,15 @@ function Asignaturas({ asignaturas }) {
           <tr key={asignatura.codigo}>
             <td>{asignatura.codigo}</td>
             <td>{asignatura.nombre}</td>
-            <td>{asignatura.postulantes}</td>
+            <td>{asignatura.num_postulantes}</td>
             <td>{asignatura.cupos}</td>
-            <td><span className="arrow"><ForwardIcon/></span></td> 
+            <td>
+              <Link to={`/asignatura/${asignatura.id}`}>
+                <span className="arrow">
+                  <ForwardIcon />
+                </span>
+              </Link>
+            </td>
           </tr>
         ))}
       </tbody>
