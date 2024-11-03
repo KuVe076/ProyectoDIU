@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import HomeIcon from '@mui/icons-material/Home';
 
 export const NavBar = () => {
   const navLinkClass = ({ isActive }) => {
@@ -9,18 +10,16 @@ export const NavBar = () => {
   }
   return (
     <nav className='nav-bar'>
-      <NavLink
-        className={navLinkClass}
-        to='/'
-      >
-        Inicio
-      </NavLink>
-      <NavLink
-        className={navLinkClass}
-        to='/lightbulb'
-      >
-        Ampolleta
-      </NavLink>
+      <div className='nav-text'> USER_TEST </div>
+      <div className='home-icon'>
+        <NavLink
+          className={navLinkClass}
+          to='/'
+        >
+          <HomeIcon />
+        </NavLink>
+      </div>
+      
     </nav>
   )
 }
