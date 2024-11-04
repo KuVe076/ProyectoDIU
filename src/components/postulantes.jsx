@@ -8,7 +8,7 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import horariob from '../assets/horariob.png';
 
 
-function Postulantes({ postulantes }) {
+function Postulantes({ postulantes, onAccept }) {
   return (
     <table className="postulantes-table">
       <thead>
@@ -30,7 +30,8 @@ function Postulantes({ postulantes }) {
             <td>{postulante.pra}</td>
             <td><a className='res-icon' href={postulante.resumen} target="_blank" rel="noopener noreferrer"><DescriptionIcon/></a></td>
             <td><a className='hor-icon' href={postulante.horario} target='_blank' rel='noreferrer'><CalendarMonthIcon/></a></td>
-            <td className='check-tick'><CheckIcon/></td> 
+            <td className='check-tick'>
+              <button onClick={() => onAccept(postulante.id)}><CheckIcon/></button></td> 
             <td>{postulante.estado}</td>
           </tr>
         ))}
