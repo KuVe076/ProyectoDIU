@@ -4,6 +4,8 @@ import ForwardIcon from '@mui/icons-material/Forward';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CheckIcon from '@mui/icons-material/Check';
 import DescriptionIcon from '@mui/icons-material/Description';
+// import resumenb from '../assets/resumenb.pdf';
+import horariob from '../assets/horariob.png';
 
 
 function Postulantes({ postulantes }) {
@@ -26,9 +28,9 @@ function Postulantes({ postulantes }) {
             <td>{postulante.nombre}</td>
             <td>{postulante.nota}</td>
             <td>{postulante.pra}</td>
-            <td><DescriptionIcon/></td>
-            <td><CalendarMonthIcon/></td>
-            <td><CheckIcon/></td>
+            <td><a className='res-icon' href={postulante.resumen} target="_blank" rel="noopener noreferrer"><DescriptionIcon/></a></td>
+            <td><a className='hor-icon' href={postulante.horario} target='_blank' rel='noreferrer'><CalendarMonthIcon/></a></td>
+            <td className='check-tick'><CheckIcon/></td> 
             <td>{postulante.estado}</td>
           </tr>
         ))}
