@@ -10,6 +10,7 @@ function Asignaturas({ asignaturas }) {
         <tr>
           <th>Código Asignatura</th>
           <th>Nombre</th>
+          <th>Emplazamiento</th>
           <th>Cantidad de postulantes</th>
           <th>Cupos disponibles</th>
           <th></th>
@@ -20,6 +21,7 @@ function Asignaturas({ asignaturas }) {
           <tr key={asignatura.codigo}>
             <td>{asignatura.codigo}</td>
             <td>{asignatura.nombre}</td>
+            <td>{asignatura.campus}</td>
             <td>{asignatura.num_postulantes}</td>
             <td>{asignatura.cupos}</td>
             <td>
