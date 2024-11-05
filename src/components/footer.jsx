@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/footer/footer.scss'
-import logo from '../assets/logo.png'; // Reemplaza con la ruta a tu imagen
+import logo from '../assets/logo.png'; 
 
 const Footer = () => {
   return (
