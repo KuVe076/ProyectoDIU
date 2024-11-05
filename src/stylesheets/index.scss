@@ -11,9 +11,26 @@ html, body {
   padding: 0;
   margin: 0;
   background-color: #F4F3F2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
   
 }
 
 * {
   font-family: 'Open Sans', sans-serif;
+}
+
+#root {
+  display: inherit;
+  flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+footer{
+  justify-self: flex-end;
+  margin-top: auto;
+  margin-bottom: 0;
 }
