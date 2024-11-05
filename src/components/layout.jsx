@@ -5,6 +5,7 @@ import HomePage from '../pages/home_page'
 import Asignatura from '../pages/asignatura'
 
 import NavBar from '../components/nav_bar'
+import Footer from '../components/footer'
 
 const Layout = () => {
   return (
@@ -17,6 +18,7 @@ const Layout = () => {
             <Route path='/asignatura/:id' element={<Asignatura />} />
           </Routes>
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   )

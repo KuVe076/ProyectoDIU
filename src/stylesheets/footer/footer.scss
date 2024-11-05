@@ -1,0 +1,16 @@
+footer {
+    background-color: white;
+    padding: 20px; 
+  
+    .footer-container {
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      width: 100%; 
+  
+      img {
+        max-width: 300px;
+        height: auto; 
+      }
+    }
+  }
