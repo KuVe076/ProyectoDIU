@@ -7,7 +7,23 @@
   width: 98.5%;
   justify-content: end;
 
+  .nav-logo {
+    display:flex;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 30px;
+    a {
+
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: #F9FAF8;
+    font-weight: 850;
+    text-decoration: none;
+    }
+  }
   
+
+
   .nav-text {
     display: flex;
     flex-direction: column;

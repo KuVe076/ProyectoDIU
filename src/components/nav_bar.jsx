@@ -10,6 +10,9 @@ export const NavBar = () => {
   } 
   return (
     <nav className='nav-bar'>
+      <div className='nav-logo'>
+      <a href="/">PAU</a>
+      </div>
       <div className='nav-text'> Ricardo Salas Letelier </div>
       <div className='home-icon'>
         <NavLink

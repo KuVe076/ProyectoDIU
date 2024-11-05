@@ -44,45 +44,65 @@
       justify-content: center;
       align-items: center;
       margin-top: 15px;
+      width: 100%;
     }
+
     .postulantes-leyenda {
+      margin: 0;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       border: 1px solid #ccc;
       align-items: center;
-      border-radius: 10px;
-      padding: 30px;
-    }
-    .postulantes-leyenda h3 {
-      display: inherit;
-      // border: 1px solid red;
-
-    }
-    .postulantes-leyenda p {
-      display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       gap: 25px;
-      // border: 1px solid red;
+      border-radius: 10px;
+      padding: 0px 30px;
+      width: 100%;
+    }
+
+    
+    .legend-entry {
+      display: flex;
+      flex-direction: row;
+      // border: 1px solid pink;
+      // border-left: 1px solid gray;
+      // border-right: 1px solid gray;
+      // margin: 5px;
+      // padding: 5px;
+    }
+
+    .legend-entry p{
+      display: flex;
+    }
+
+    .legend-entry p .leg-icon {
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+      // border: 3px solid blue;
     }
 
     .back-button {
+      margin-top: 25px;
       display: flex;
       margin-left: auto;
     }
   
     .back-button button {
-      background-color: #ddd;
-      border: 2px solid black;
-      padding: 5px;
+      background-color: #2f5e80;
+      border: 2px solid gray;
+      padding: 10px;
       font: inherit;
-      color: black;
+      color: #F4F3F2;
       cursor: pointer;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 15px;
+      border-radius: 8px;
     }
   
     .back-button button:hover {
-      background-color: #333;
-      border-color: grey;
+      background-color: #F4F3F2;
+      border-color: #2f5e80;
+      color: #2f5e80;
     }
   }

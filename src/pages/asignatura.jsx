@@ -80,10 +80,9 @@ const Asignatura = () => {
       </div>
       <div className='leyenda-container'>
         <div className='postulantes-leyenda'>
-          <h3>Leyenda</h3>
-          <p>Para ver el resumen académico del postulante clickea  <DescriptionIcon /></p>
-          <p>Para ver el horario del postulante clickea  <CalendarMonthIcon /></p>
-          <p>Para aceptar un postulante clickea  <CheckIcon /></p>
+          <div className='legend-entry'><p>Para ver el resumen académico del postulante clickea  <DescriptionIcon className='leg-icon'/></p></div>
+          <div className='legend-entry'><p>Para ver el horario del postulante clickea  <CalendarMonthIcon className='leg-icon'/></p></div>
+          <div className='legend-entry'><p>Para aceptar un postulante clickea  <CheckIcon className='leg-icon'/></p></div>
         </div>
       </div>
 
