@@ -2,7 +2,7 @@ import React from 'react'
 import Asignaturas from '../components/asignaturas';
 
 export const HomePage = () => {
-  const profesor = "NOMBRE_APELLIDO_PROFESOR";
+  const profesor = "Ricardo Salas Letelier";
 
   const asignaturas = [
     { id: "1", codigo: "INF239", nombre: "Bases de datos", num_postulantes: 3, cupos: 7, campus: "Santiago, San Joaquín" },

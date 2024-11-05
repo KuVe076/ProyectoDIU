@@ -1,0 +1,28 @@
+.info-title {
+    font-size: 30px;
+}
+
+.info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 10px;
+}
+
+.ayudantia-info {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    //   border: solid red
+
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.column div {
+    margin: 0 20px 0 20px;
+}

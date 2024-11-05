@@ -66,7 +66,7 @@ function Postulantes({ postulantes, onAccept }) {
           <th>Resumen</th>
           <th>Horario</th>
           <th>Aceptar</th>
-          <th>Estado</th>
+          <th>Estado Postulación</th>
         </tr>
       </thead>
       <tbody>

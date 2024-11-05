@@ -2,7 +2,14 @@
     width: 100%;
     border-collapse: collapse;
   
-    th, td {
+    th {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+      background-color: rgba(212, 212, 212, 0.87);
+    }
+
+    td {
       padding: 8px;
       border: 1px solid #ddd;
       text-align: left;
@@ -13,3 +20,4 @@
        color: black;
    }
   }
+

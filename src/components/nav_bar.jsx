@@ -7,10 +7,10 @@ export const NavBar = () => {
     const classes = ['nav-bar__link']
     if (isActive) classes.push('nav-bar__link--active')
     return classes.join(' ')
-  }
+  } 
   return (
     <nav className='nav-bar'>
-      <div className='nav-text'> USER_TEST </div>
+      <div className='nav-text'> Ricardo Salas Letelier </div>
       <div className='home-icon'>
         <NavLink
           className={navLinkClass}
