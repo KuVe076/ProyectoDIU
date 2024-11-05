@@ -15,10 +15,16 @@
 
  .res-icon {
   color: black;
+  &.visited {
+    color: grey
+  }
  }
 
  .hor-icon {
   color: black;
+  &.visited {
+    color: grey
+  }
  }
 
  .check-tick {

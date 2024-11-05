@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../stylesheets/asignatura-show/postulantes.scss'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import CheckIcon from '@mui/icons-material/Check';
@@ -11,6 +11,11 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 function Postulantes({ postulantes, onAccept }) {
 
   const [sortOrder, setSortOrder] = useState({ column: null, direction: 'asc' }); // Estado inicial
+  const [visitedLinks, setVisitedLinks] = useState(() => JSON.parse(sessionStorage.getItem('visitedLinks')) || {});
+
+  useEffect(() => {
+    sessionStorage.setItem('visitedLinks', JSON.stringify(visitedLinks));
+  }, [visitedLinks]);
 
   const handleSort = (column) => {
     if (sortOrder.column === column) {
@@ -18,6 +23,13 @@ function Postulantes({ postulantes, onAccept }) {
     } else {
       setSortOrder({ column, direction: 'asc' });
     }
+  };
+
+  const handleClick = (id, type) => {
+    setVisitedLinks((prev) => ({
+      ...prev,
+      [id]: { ...prev[id], [type]: true },
+    }));
   };
 
 
@@ -65,8 +77,26 @@ function Postulantes({ postulantes, onAccept }) {
             <td>{postulante.nota}</td>
             <td>{postulante.pra}</td>
             <td>{postulante.vtr}</td>
-            <td><a className='res-icon' href={postulante.resumen} target="_blank" rel="noopener noreferrer"><DescriptionIcon /></a></td>
-            <td><a className='hor-icon' href={postulante.horario} target='_blank' rel='noreferrer'><CalendarMonthIcon /></a></td>
+            <td><a 
+                  className= {`res-icon ${visitedLinks[postulante.id]?.resumen ? 'visited' : ''}`}
+                  href={postulante.resumen} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={() => handleClick(postulante.id, 'resumen')}
+                  >
+                    <DescriptionIcon />
+                </a>
+            </td>
+            <td><a 
+                  className= {`hor-icon ${visitedLinks[postulante.id]?.horario ? 'visited' : ''}`} 
+                  href={postulante.horario} 
+                  target='_blank' 
+                  rel='noreferrer'
+                  onClick={() => handleClick(postulante.id, 'horario')}
+                  >
+                    <CalendarMonthIcon />
+                </a>
+            </td>
             <td className='check-tick'>
               <button onClick={() => onAccept(postulante.id)}><CheckIcon /></button></td>
             <td>{postulante.estado}</td>
