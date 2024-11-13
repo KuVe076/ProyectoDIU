@@ -78,13 +78,13 @@ const Asignatura = () => {
           <Postulantes postulantes={postulantes} onAccept={aceptarPostulante}></Postulantes>
         </div>
       </div>
-      <div className='leyenda-container'>
+      {/* <div className='leyenda-container'>
         <div className='postulantes-leyenda'>
           <div className='legend-entry'><p>Para ver el resumen académico del postulante clickea  <DescriptionIcon className='leg-icon'/></p></div>
           <div className='legend-entry'><p>Para ver el horario del postulante clickea  <CalendarMonthIcon className='leg-icon'/></p></div>
           <div className='legend-entry'><p>Para aceptar un postulante clickea  <CheckIcon className='leg-icon'/></p></div>
         </div>
-      </div>
+      </div> */}
 
       <div className='back-button'>
         <button onClick={() => window.location.href = '/'}>VOLVER</button>

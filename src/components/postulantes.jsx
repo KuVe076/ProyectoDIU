@@ -5,17 +5,29 @@ import CheckIcon from '@mui/icons-material/Check';
 import DescriptionIcon from '@mui/icons-material/Description';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+
 
 
 
 function Postulantes({ postulantes, onAccept }) {
 
-  const [sortOrder, setSortOrder] = useState({ column: null, direction: 'asc' }); // Estado inicial
+  const [sortOrder, setSortOrder] = useState({ column: null, direction: 'asc' });
   const [visitedLinks, setVisitedLinks] = useState(() => JSON.parse(sessionStorage.getItem('visitedLinks')) || {});
+  const [checkedState, setCheckedState] = useState(() => {
+    const storedChecks = localStorage.getItem('checkedState');
+    return storedChecks ? JSON.parse(storedChecks) : postulantes.reduce((acc, curr) => ({ ...acc, [curr.id]: false }), {});
+  });
+
+
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   useEffect(() => {
     sessionStorage.setItem('visitedLinks', JSON.stringify(visitedLinks));
-  }, [visitedLinks]);
+    localStorage.setItem('checkedState', JSON.stringify(checkedState));
+  }, [visitedLinks, checkedState]);
 
   const handleSort = (column) => {
     if (sortOrder.column === column) {
@@ -32,33 +44,44 @@ function Postulantes({ postulantes, onAccept }) {
     }));
   };
 
+  const handleCheckboxChange = (id) => {
+    setCheckedState(prevState => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
+  };
 
   const sortedPostulantes = [...postulantes].sort((a, b) => {
-    const column = sortOrder.column || 'nombre'; 
-    const direction = sortOrder.direction || 'asc'; 
+    const checkedA = checkedState[a.id];
+    const checkedB = checkedState[b.id];
+
+    if (checkedA && !checkedB) return -1;
+    if (!checkedA && checkedB) return 1;
+
+    const column = sortOrder.column || 'Nota del ramo';
+    const direction = sortOrder.direction || 'asc';
 
     const aValue = a[column];
     const bValue = b[column];
 
     if (aValue < bValue) {
-        return direction === 'asc' ? -1 : 1;
+      return direction === 'asc' ? -1 : 1;
     }
     if (aValue > bValue) {
-        return direction === 'asc' ? 1 : -1;
+      return direction === 'asc' ? 1 : -1;
     }
     return 0;
-
-
   });
 
   return (
     <table className="postulantes-table">
       <thead>
         <tr>
+          <th>Interes</th>
           <th>Nombre</th>
           <th>Carrera</th>
           <th onClick={() => handleSort('nota')}>
-            Nota del ramo 
+            Nota del ramo
             {sortOrder.column === 'nota' ? (sortOrder.direction === 'asc' ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />) : <ArrowDropDownIcon />}
           </th>
           <th>Promedio Rendimiento Acumulado </th>
@@ -72,33 +95,43 @@ function Postulantes({ postulantes, onAccept }) {
       <tbody>
         {sortedPostulantes.map((postulante) => (
           <tr key={postulante.id}>
+            <td>
+              <Checkbox
+                {...label}
+                icon={<FavoriteBorder />}
+                checkedIcon={<Favorite />}
+                checked={checkedState[postulante.id]} 
+                onChange={() => handleCheckboxChange(postulante.id)}
+              />
+            </td>
             <td>{postulante.nombre}</td>
             <td>{postulante.carrera}</td>
             <td>{postulante.nota}</td>
             <td>{postulante.pra}</td>
             <td>{postulante.vtr}</td>
-            <td><a 
-                  className= {`res-icon ${visitedLinks[postulante.id]?.resumen ? 'visited' : ''}`}
-                  href={postulante.resumen} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  onClick={() => handleClick(postulante.id, 'resumen')}
-                  >
-                    <DescriptionIcon />
-                </a>
+            <td><a
+              className={`res-icon ${visitedLinks[postulante.id]?.resumen ? 'visited' : ''}`}
+              href={postulante.resumen}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleClick(postulante.id, 'resumen')}
+            >
+              <DescriptionIcon />
+            </a>
             </td>
-            <td><a 
-                  className= {`hor-icon ${visitedLinks[postulante.id]?.horario ? 'visited' : ''}`} 
-                  href={postulante.horario} 
-                  target='_blank' 
-                  rel='noreferrer'
-                  onClick={() => handleClick(postulante.id, 'horario')}
-                  >
-                    <CalendarMonthIcon />
-                </a>
+            <td><a
+              className={`hor-icon ${visitedLinks[postulante.id]?.horario ? 'visited' : ''}`}
+              href={postulante.horario}
+              target='_blank'
+              rel='noreferrer'
+              onClick={() => handleClick(postulante.id, 'horario')}
+            >
+              <CalendarMonthIcon />
+            </a>
             </td>
             <td className='check-tick'>
-              <button onClick={() => onAccept(postulante.id)}><CheckIcon /></button></td>
+              <button onClick={() => onAccept(postulante.id)}><CheckIcon /></button>
+            </td>
             <td>{postulante.estado}</td>
           </tr>
         ))}
