@@ -77,7 +77,7 @@ function Postulantes({ postulantes, onAccept }) {
     <table className="postulantes-table">
       <thead>
         <tr>
-          <th>Interes</th>
+          <th>Interés</th>
           <th>Nombre</th>
           <th>Carrera</th>
           <th onClick={() => handleSort('nota')}>

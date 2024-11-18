@@ -13,7 +13,11 @@ export const NavBar = () => {
       <div className='nav-logo'>
       <a href="/">PAU</a>
       </div>
-      <div className='nav-text'> Ricardo Salas Letelier </div>
+      <div className='nav-title'>
+        Plataforma de Ayudantes Unificada
+
+      </div>
+      <div className='nav-text'> Federico Meza Montoya </div>
       <div className='home-icon'>
         <NavLink
           className={navLinkClass}
