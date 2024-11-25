@@ -58,7 +58,7 @@ function Postulantes({ postulantes, onAccept }) {
     if (checkedA && !checkedB) return -1;
     if (!checkedA && checkedB) return 1;
 
-    const column = sortOrder.column || 'Nota del ramo';
+    const column = sortOrder.column || 'Nota de Aprobación';
     const direction = sortOrder.direction || 'asc';
 
     const aValue = a[column];
@@ -81,13 +81,13 @@ function Postulantes({ postulantes, onAccept }) {
           <th>Nombre</th>
           <th>Carrera</th>
           <th onClick={() => handleSort('nota')}>
-            Nota del ramo
+            Nota de Aprobación
             {sortOrder.column === 'nota' ? (sortOrder.direction === 'asc' ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />) : <ArrowDropDownIcon />}
           </th>
           <th>Promedio Rendimiento Acumulado </th>
           <th>Veces Tomadas el Ramo (VTR) </th>
-          <th>Resumen</th>
-          <th>Horario</th>
+          <th>Resumen Académico</th>
+          <th>Horario Postulante</th>
           <th>Aceptar</th>
           <th>Estado Postulación</th>
         </tr>

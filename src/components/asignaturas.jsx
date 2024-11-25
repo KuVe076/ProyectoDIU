@@ -9,7 +9,7 @@ function Asignaturas({ asignaturas }) {
       <thead>
         <tr>
           <th>Código Asignatura</th>
-          <th>Nombre</th>
+          <th>Nombre Asignatura</th>
           <th>Emplazamiento</th>
           <th>Cantidad de postulantes</th>
           <th>Cupos disponibles</th>
